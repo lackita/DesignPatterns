@@ -3,10 +3,8 @@ import org.junit.Test;
 
 public class FactoryTest {
 	@Test
-	public void testOpened() {
+	public void testNewDocument() {
 		MyApplication app = new MyApplication();
 		app.newDocument();
-		app.openDocument(0);
-		assertTrue(app.allOpened());
 	}
 }
