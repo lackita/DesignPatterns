@@ -1,12 +1,5 @@
-public class Mediator {
-	private ColleagueTwo receiver;
-
-	public Mediator(ColleagueOne s, ColleagueTwo r) {
-		s.setMediator(this);
-		receiver = r;
-	}
-
-	public void publish(String p) {
-		receiver.send(p);
-	}
+public interface Mediator {
+	public void AddSender(Colleague c);
+	public void AddReceiver(Colleague c);
+	public void Send(int x);
 }

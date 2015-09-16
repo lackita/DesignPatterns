@@ -4,14 +4,20 @@ clean:
 test: MediatorTest.class
 	java -cp .:../junit/junit.jar:../junit/hamcrest-core.jar org.junit.runner.JUnitCore MediatorTest
 
-MediatorTest.class: MediatorTest.java Mediator.class ColleagueOne.class ColleagueTwo.class
+MediatorTest.class: MediatorTest.java ConcreteMediator.class ConcreteSender.class ConcreteReceiver.class
 	javac -cp .:../junit/junit.jar MediatorTest.java
 
-Mediator.class: Mediator.java ColleagueOne.class ColleagueTwo.class
+ConcreteMediator.class: ConcreteMediator.java Mediator.class
+	javac ConcreteMediator.java
+
+Mediator.class: Mediator.java Colleague.class
 	javac Mediator.java
 
-ColleagueOne.class: ColleagueOne.java
-	javac ColleagueOne.java
+Colleague.class: Colleague.java
+	javac Colleague.java
 
-ColleagueTwo.class: ColleagueTwo.java
-	javac ColleagueTwo.java
+ConcreteSender.class: ConcreteSender.java Colleague.class
+	javac ConcreteSender.java
+
+ConcreteReceiver.class: ConcreteReceiver.java Colleague.class
+	javac ConcreteReceiver.java

@@ -4,10 +4,12 @@ import org.junit.Test;
 public class MediatorTest {
 	@Test
 	public void testMediator() {
-		ColleagueOne c1 = new ColleagueOne();
-		ColleagueTwo c2 = new ColleagueTwo();
-		Mediator m = new Mediator(c1, c2);
-		c1.publishEvent("foo");
-		assertEquals("foo", c2.lastReceivedEvent());
+		ConcreteReceiver receiver = new ConcreteReceiver();
+		ConcreteSender sender = new ConcreteSender();
+		Mediator m = new ConcreteMediator();
+		m.AddSender(sender);
+		m.AddReceiver(receiver);
+		sender.Send(1);
+		assertEquals(receiver.received, 1);
 	}
 }
